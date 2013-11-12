@@ -1,0 +1,26 @@
+notify {
+  position: fixed;
+  top: 70px;
+  right: 10px;
+
+  pointer-events:none;
+
+  .alert.media {
+    .default-shadow();
+    .transition(opacity 1s ease-out);
+
+    opacity:0.7;
+
+    &.ng-hide {
+      display: block !important;
+      opacity:0;
+    }
+
+    button.close {
+      margin-right: -5px;
+      margin-top: -7px;
+      margin-left: 5px;
+      pointer-events:auto;
+    }
+  }
+}
