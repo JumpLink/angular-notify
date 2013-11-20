@@ -1,4 +1,4 @@
-angular.module('jumplink.notify').controller('NotifyController', function($scope, NotifyService) {
+angular.module('jumplink.notify').controller('NotifyController', function($scope, NotifyService, AuthenticationService) {
   $scope.close = function() {
     console.log("close in controller");
     NotifyService.hide();
@@ -8,5 +8,4 @@ angular.module('jumplink.notify').controller('NotifyController', function($scope
   $scope.$watch(NotifyService.getNotify, function(newValue) {
     $scope.notify = newValue;
   });
-
 });

@@ -4,7 +4,10 @@ angular.module('jumplink.notify').factory("NotifyService", function($timeout) {
   var history = [];
 
   /* type = success | danger | info | warning */
-  var show = function(title, message, type) {
+  var show = function(title, message, type, media) {
+    console.log("show notify");
+    console.log("old notify;");
+    console.log(notify);
     if ( type != 'success' && type != 'danger' && type != 'info' && type != 'warning' ) {
       type = "warning"
     }
@@ -13,8 +16,15 @@ angular.module('jumplink.notify').factory("NotifyService", function($timeout) {
       title: title,
       message: message,
       type: type,
-      show: true
+      show: true,
+      media: media
     }, notify);
+
+    console.log("new notify;");
+    console.log(notify);
+
+    if(typeof(timer) != 'undefined')
+      $timeout.cancel(timer);
 
     timer = $timeout(function() {
       notify.show = false;
